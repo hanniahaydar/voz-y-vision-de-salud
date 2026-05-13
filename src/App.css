@@ -1,0 +1,191 @@
+/* FONDO DEGRADADO ANIMADO */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #0d47a1, #1976d2, #4dd0e1, #ffffff);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TARJETA DE CRISTAL CENTRADA */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 550px;
+  min-height: 550px;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.header { text-align: center; margin-bottom: 20px; }
+.heart-icon { font-size: 40px; margin-bottom: 10px; }
+.header h3 { color: #1565c0; font-weight: 700; margin: 0; }
+
+.title { text-align: center; color: #333; margin-bottom: 30px; font-size: 1.2rem; font-weight: bold; }
+
+/* CENTRADO DE CONTENIDO */
+.step-content { flex: 1; display: flex; flex-direction: column; }
+.center-v { justify-content: center; align-items: center; text-align: center; }
+
+/* INPUTS Y SELECTS (CORRECCIÓN DE TEXTO INVISIBLE) */
+.input-field { margin-bottom: 20px; }
+.input-field label { display: block; margin-bottom: 8px; color: #333; font-size: 14px; font-weight: 600;}
+.input-field input, .input-field select {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #aaa; /* Borde más visible */
+  border-radius: 15px;
+  background: #ffffff;
+  color: #333; /* TEXTO OSCURO PARA QUE SE VEA */
+  font-size: 16px;
+  outline: none;
+}
+.input-field input::placeholder { color: #888; }
+.input-field select option { color: #333; background: #fff; } /* Opciones desplegables visibles */
+
+/* PANTALLA 3: CUERPO */
+.body-selection { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; }
+.body-box { flex: 1; cursor: pointer; text-align: center; transition: 0.3s; }
+.body-box p { color: #333; font-weight: 500; } /* Texto oscuro para que se lea */
+.img-placeholder {
+  height: 250px;
+  background: #f0f4f8;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  margin-bottom: 10px;
+}
+.body-box.selected .img-placeholder { border-color: #1976d2; background: #e3f2fd; color: #1976d2; }
+
+/* SÍNTOMAS (BOTONES) */
+.symptoms-list { display: flex; flex-direction: column; gap: 10px; }
+.symptom-item {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  color: #333; /* TEXTO OSCURO */
+  font-weight: 600;
+  transition: 0.2s;
+}
+.symptom-item.active { background: #1976d2; color: white; border-color: #1565c0;}
+
+/* INTENSIDAD CON EMOJIS */
+.sintoma-label { color: #333; font-weight: bold; text-align: center; margin-bottom: 10px; }
+.intensity-row { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 25px; 
+  overflow-x: auto; 
+  padding-bottom: 10px;
+}
+.scale-point { display: flex; flex-direction: column; align-items: center; min-width: 45px; }
+.emoji-small { font-size: 22px; margin-bottom: 5px; }
+.btn-number {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  background: white;
+  color: #333; /* Números visibles */
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-number.selected { background: #1976d2; color: white; border-color: #0d47a1; }
+
+/* ADICIONALES (SÍ/NO y FRECUENCIA) */
+.q-label { color: #333; text-align: center; font-weight: bold; margin-bottom: 10px;}
+.btn-row { display: flex; gap: 10px; margin-bottom: 25px; justify-content: center; }
+.btn-choice { 
+  flex: 1; 
+  padding: 12px; 
+  border: 1px solid #aaa; 
+  border-radius: 10px; 
+  background: white; 
+  color: #333; /* TEXTO OSCURO PARA OPCIONES EN BLANCO */
+  font-weight: bold;
+  cursor: pointer; 
+  transition: 0.2s;
+}
+.btn-choice.active { background: #1976d2; color: white; border-color: #1565c0;}
+
+/* BOTONES DE ACCIÓN PRINCIPALES */
+.actions { margin-top: auto; display: flex; gap: 15px; }
+.actions.split { justify-content: space-between; }
+.btn-primary {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-primary.full { width: 100%; }
+.btn-primary:disabled { background: #b0bec5; cursor: not-allowed; }
+.btn-back { 
+  background: #e0e0e0; 
+  border: none; 
+  padding: 15px 25px; 
+  border-radius: 15px; 
+  color: #333; /* Botón de atrás visible */
+  font-weight: bold;
+  cursor: pointer; 
+}
+/* --- FORZADO DE VISIBILIDAD AGRESIVO --- */
+
+/* 1. Fuerza color y fondo en todos los campos de texto */
+input, select, textarea {
+  color: #333333 !important;
+  background-color: #ffffff !important;
+  -webkit-text-fill-color: #333333 !important; /* Vital para navegadores Webkit */
+}
+
+/* 2. Anula el color impuesto por el autocompletado del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #aaa;
+  -webkit-text-fill-color: #333333 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 3. Asegura que el texto del placeholder también sea visible */
+input::placeholder, textarea::placeholder {
+  color: #888 !important;
+  opacity: 1;
+}
